@@ -1,0 +1,117 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-10-07"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+a <- 15
+b <- a
+y <- 22
+c <- y
+```
+```{r}
+myName <- "SkylarHsu"
+length(myName) # 查看物件本身代表幾個值。
+```
+```{r}
+num1 <- 5
+vNum1 <- c(2,5)
+vNum2 <- c(2, num1)
+```
+```{r}
+vNum1 <- vNum2
+vNum2 <- c(2, vNum1)
+```
+
+
+```{r}
+heightsOftheEntireClassroom <- c()
+```
+
+```{r}
+heightsOfAStudentComngInsideTheClassroom <- sample(165:200,1)
+```
+
+```{r}
+# method 1: concatenate
+heightsOftheEntireClassroom <-
+  c(
+    heightsOftheEntireClassroom,
+    heightsOfAStudentComngInsideTheClassroom
+  )
+```
+
+```{r}
+# method 2: 
+heightsOftheEntireClassroom2 <-
+  heightOfAStudentComingInsideTheClassroom1
+```
+
+```{r}
+heightsOftheEntireClassroom <- c()
+
+heightsOftheEntireClassroom2 <- c()
+```
+
+```{r}
+heightOfAStudentComingInsideTheClassroom <- sample(165:200,1)
+```
+
+```{r}
+# method 1: concatenate 
+heightsOftheEntireClassroom <-
+  c(
+    heightsOftheEntireClassroom,
+    heightOfAStudentComingInsideTheClassroom
+  )
+```
+
+```{r}
+# method 2: 
+heightsOftheEntireClassroom2 <-
+  heightOfAStudentComingInsideTheClassroom
+```
+
+```{r}
+c("3", "SkylarHsu") # non-Atomic
+c(5,7)
+c("Tom","Jerry")
+c(T,T,F,F)
+```
+
+```{r}
+num1Vector<-c(5,6,7)
+num2Vector<-c(5L,6L,7L)
+```
+
+```{r}
+
+object.size(num1Vector)
+object.size(num2Vector)
+```
+
+```{r}
+char1Vector<-c("你好","How are you?")
+```
+
+```{r}
+dialogue <- c('小明說："明天不用上課。"',
+               '小花說："真的嗎？"')
+cat(dialogue, sep="\n") 
+```
+
+```{r}
+context <- "老師說換行要寫\\n" # 請依下列情境輸入
+cat(context)
+```
+
