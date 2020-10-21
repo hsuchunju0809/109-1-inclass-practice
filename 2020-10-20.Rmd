@@ -1,0 +1,293 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-10-20"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+library(lubridate)
+```
+
+```{r}
+tpeTime <- ymd_hms("2020-03-18 13:52:40",
+        tz="Asia/Taipei")
+```
+
+```{r}
+pgTime <- mdy_hms("Mar.18, 2020, 05:52:40",
+                  tz="Europe/Lisbon")
+```
+
+```{r}
+tpeTimeVector <- 
+  ymd_hms(
+    c("2020-03-18 13:52:40",
+      "2020-03-11 03:12:40"),
+    tz="Asia/Taipei"
+    )
+```
+
+```{r}
+typeof(tpeTime)
+class(tpeTime)
+```
+
+```{r}
+tpeTime
+print(tpeTime)
+cat(tpeTime)
+```
+
+```{r}
+as.numeric(tpeTime)
+```
+
+```{r}
+print(character(tpeTime))
+cat(character(tpeTime))
+```
+
+## let computer tell us time
+
+human tells computer
+```{r}
+tpeTime2 <- ymd_hms("2010-03-18 16:52:40",
+        tz="Asia/Taipei")
+pgTime2 <- mdy_hms("Mar.01, 2020, 03:52:40",
+                  tz="Europe/Lisbon")
+```
+
+computer tells human
+```{r}
+tpeTime3 <- with_tz(tpeTime2,
+        tzone="America/New_York")
+tpeTime2
+tpeTime3
+typeof(tpeTime3)
+class(tpeTime3)
+```
+
+```{r}
+tpeTime2
+```
+
+"2010-03-18 16:52:40" taipei => New York
+```{r}
+tpeTime3
+```
+
+```{r}
+cat(tpeTime2)
+cat(tpeTime3)
+```
+```{r}
+pgTime3 <- 
+  with_tz(pgTime2,
+          tzone="America/New_York")
+
+pgTime2
+pgTime3
+```
+
+```{r}
+tpeTime3
+pgTime3
+```
+```{r}
+tpeTime2 - pgTime2
+```
+```{r}
+tpeTime
+class(tpeTime)
+as.character(tpeTime)
+```
+
+```{r}
+tpeTime_utc <- with_tz(tpeTime, tzone="UTC")
+tpeTime_utc
+as.character(tpeTime_utc)
+```
+```{r}
+tpeTime_iso8601 <- format_ISO8601(tpeTime, usetz=T)
+tpeTime_iso8601
+```
+```{r}
+tpeTime <- ymd_hms(tpeTime_iso8601)
+```
+
+```{r}
+library(lubridate)
+
+# Date/Time class
+purchasingTime <- 
+  ymd_hms("2020-03-31T13:40:55Z")
+
+# character
+location <- "一芳"
+item <- "水果茶"
+
+# numeric
+quantity <- 2
+
+mingsPurchase <-
+  list(
+    purchasingTime, 
+    location, 
+    quantity, 
+    item
+  )
+print(mingsPurchase)
+```
+```{r}
+elemenName = 
+  `elementName` =
+  "elementName"
+'elementName'
+```
+
+```{r}
+mingsPurchase2 <-
+  list(
+    time = purchasingTime,
+    'location' = location,
+    "quantity" = quantity,
+    `item name` = item
+  )
+print(mingsPurchase2)
+```
+```{r}
+heights = c(
+  mary=162,
+  john=177,
+  steve=180
+)
+```
+
+```{r}
+examplelist <-
+  list(
+    c(4,6,10),
+    list("Mary",173),
+    TRUE
+  )
+print(examplelist)
+```
+```{r}
+example2 <- list(
+  list(2,"john"),
+  list(3,"mary")
+)
+print(example2)
+```
+
+```{r}
+example2c <- c(
+  c(2,5),
+  c(4,6)
+)
+#c(2,5,4,6)
+print(example2c)
+```
+```{r}
+# 「**2杯**」「**水果茶**」
+item1 <- list(
+  quantity=2,
+  `item name`="水果茶"
+)
+# 「**1杯**」「**日月紅茶**」
+item2 <- list(
+  quantity=1,
+  `item name`="日月紅茶"
+)
+
+mingsPurchase3 <-
+  list(
+    time = purchasingTime,
+    location = location,
+    items=list(
+      item1,
+      item2
+    )
+  )
+
+print(mingsPurchase3)
+```
+```{r}
+student1 <-
+  list(
+    name = character(),
+    id = character(),
+    gmail = character(),
+    googleClassroom =
+      list(
+        displayName = character()
+      ),
+    github =
+      list(
+        username = character(),
+        repoUrl = character()
+      ),
+    homeworks = list(),
+    exams = list(),
+    list()
+  )
+
+names(student1) # 每個元素名稱
+length(student1) # 元素個數
+```
+```{r}
+str(student1, 2) # 第一層基本元素架構
+```
+```{r}
+hw1 <- list(
+  date=ymd("2020-10-21"),
+  grade=10
+)
+exam1 <- list(
+  date=ymd("2020-10-28"),
+  grade=50
+)
+student1 <-
+  list(
+    name = "Martin",
+    id = "007",
+    gmail = "mt@gm.ntpu.edu.tw",
+    googleClassroom =
+      list(
+        displayName = "MT L"
+      ),
+    github =
+      list(
+        username = "tpemartin",
+        repoUrl = "https://github.com/tpemartin/109-1-inclass-practice"
+      ),
+    homeworks = list(
+      hw1
+    ),
+    exams = list(
+      exam1
+    ),
+    list()
+  )
+
+str(student1, 2)
+```
+```{r}
+categoryTemplate = 
+  list(
+    categoryName=character(),
+    items = list(
+    )
+  )
+
+```
+
