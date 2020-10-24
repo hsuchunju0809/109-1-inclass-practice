@@ -1,0 +1,24 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-10-24"
+output: html_document
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+# Review R and RStudio
+```{r}
+
+```
+
+[NTPU](https://www.ntpu.edu.tw)
+
+```{python}
+
+```
