@@ -1,0 +1,38 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-10-25"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+
+```
+# Review R Basic(I)
+```{r}
+library(googlesheets4)
+```
+用指令安裝套件
+```{r}
+library(googlesheets4)
+library(pillar)
+```
+
+```{r}
+library(knitr)
+purl("2020-10-25.Rmd")
+```
+值 -> 物件
+```{r}
+23 -> chia
+16 -> chou
+```
+
