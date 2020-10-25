@@ -74,4 +74,62 @@ sum(c(a,b))
 ```{r}
 a+b
 ```
+# Review R Basics(III) Atomic Vector
+```{r}
+a <- 6
+b <- 15
+y <- 22
+c <- y
+```
+
+```{r}
+myName <- "Mary"
+```
+
+```{r}
+length(myName) # 查看物件本身代表幾個值。
+```
+```{r}
+num1 <- 5
+vNum1 <- c(2,5)
+vNum2 <- c(2, num1)
+```
+
+```{r}
+vNum1 <- vNum2
+vNum2 <- c(2, vNum1)
+```
+
+```{r}
+heightsOftheEntireClassroom <- c()
+
+heightsOftheEntireClassroom2 <-c()
+```
+
+```{r}
+heightOfAStudentComingInsideTheClassroom <- sample(165:200,1)
+```
+
+```{r}
+# method 1: concatenate
+heightsOftheEntireClassroom <- 
+  c(
+  heightsOftheEntireClassroom,
+  heightOfAStudentComingInsideTheClassroom
+)
+```
+
+```{r}
+# method 2:
+heightsOftheEntireClassroom2 <- 
+  heightOfAStudentComingInsideTheClassroom
+```
+
+```{r}
+c(5, "Mary") # non-Atomic
+c(5,7)
+c("John","Mary")
+c(T,TRUE,F,FALSE)
+c(T,T,F,F)
+```
 
