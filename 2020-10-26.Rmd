@@ -103,3 +103,97 @@ char3 <- c("小明","1","3")
 as.integer(char3)
 ```
 
+# Review R Basics(VI) Date Time
+```{r}
+library(lubridate)
+```
+
+```{r}
+tpeTime <- ymd_hms("2020-03-18 13:52:40",
+        tz="Asia/Taipei")
+```
+
+```{r}
+pgTime <- mdy_hms("Mar.18, 2020, 05:52:40",
+                  tz="Europe/Lisbon")
+```
+
+```{r}
+tpeTimeVector <- 
+  ymd_hms(
+    c("2020-03-18 13:52:40",
+      "2020-03-11 03:12:40"),
+    tz="Asia/Taipei"
+    )
+```
+
+```{r}
+typeof(tpeTime)
+class(tpeTime)
+```
+```{r}
+tpeTime
+print(tpeTime)
+cat(tpeTime)
+```
+```{r}
+as.numeric(tpeTime)
+```
+```{r}
+print(as.character(tpeTime))
+cat(as.character(tpeTime))
+```
+
+Human tells computer
+```{r}
+tpeTime2 <- ymd_hms("2010-03-18 16:52:40",
+        tz="Asia/Taipei")
+pgTime2 <- mdy_hms("Mar.01, 2020, 03:52:40",
+                  tz="Europe/Lisbon")
+```
+
+Computer tells human
+```{r}
+tpeTime3 <- with_tz(tpeTime2, tzone="America/New_York")
+tpeTime2
+tpeTime3
+typeof(tpeTime3)
+class(tpeTime3)
+```
+```{r}
+cat(tpeTime2)
+cat(tpeTime3)
+```
+```{r}
+pgTime3 <- 
+  with_tz(pgTime2, tzone="America/New_York")
+
+print(pgTime2)
+print(pgTime3)
+```
+```{r}
+cat(pgTime2) 
+cat(pgTime3)
+
+```
+```{r}
+tpeTime2 - pgTime2
+```
+```{r}
+tpeTime
+class(tpeTime)
+as.character(tpeTime)
+```
+```{r}
+tpeTime_utc <- with_tz(tpeTime, tzone="UTC")
+as.character(tpeTime_utc)
+```
+```{r}
+tpeTime_iso8601 <- format_ISO8601(tpeTime, usetz=T)
+tpeTime_iso8601
+```
+```{r}
+tpeTime <- ymd_hms(tpeTime_iso8601)
+tpeTime
+```
+
