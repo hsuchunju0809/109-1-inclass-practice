@@ -211,3 +211,157 @@ save(item2, saladCat, file="myObjects.rda")
 load("myObjects.rda")
 ```
 
+# Reviwe for the first midterm exam
+
+```{r}
+my_108_total_credits <- 15
+`_108_total_credits` <- 15
+`108_total_credits` <- 15
+`_my_108_total_credits`<- 15
+my.108.total_credits <- 15
+`.108.total_credits` <- 15 # 隱藏變數
+.my.108.total_credits <- 15
+我的108學年總學分數 <- 15
+`我的108學年總學分數` <- 15 # 特殊名稱處理，`不是名稱的一部份
+`.108.total_credits` <- 15
+```
+
+```{r}
+我的年紀 <- 20
+my_age <- 我的年紀
+```
+
+```{r}
+vNum1 <- c(-1,5)
+vNum2 <- c(2,3)
+vNum4 <- c() # 空向量
+
+vNum3 <- c(vNum2, vNum1)
+vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
+
+vNum3
+vNum4
+```
+
+```{r}
+context <- "老師說換行要寫\\n"
+cat(context)
+```
+```{r}
+# 10位學生的主系
+majors10_char <- c('經濟學系','社會學系','社會學系','經濟學系','經濟學系','社會學系','經濟學系','經濟學系','經濟學系','社會學系')
+
+typeof(majors10_char)
+class(majors10_char)
+```
+```{r}
+majors10_factor <- factor(majors10_char)
+# 或
+majors10_factor <- factor(
+  c('經濟學系','社會學系','社會學系','經濟學系','經濟學系','社會學系','經濟學系','經濟學系','經濟學系','社會學系')
+)
+
+typeof(majors10_factor)
+class(majors10_factor)
+```
+```{r}
+majors10_char
+majors10_factor
+```
+```{r}
+as.integer(majors10_factor) 
+```
+```{r}
+levels(majors10_factor)
+```
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger) # 無法進行數值運算
+stringInteger+2
+```
+```{r}
+trueInteger <- as.integer(stringInteger)
+class(trueInteger) # 可以進行數值運算
+typeof(trueInteger)
+trueInteger+2
+```
+```{r}
+char3 <- c("小明","1","3")
+as.integer(char3)
+```
+```{r}
+studentId <- c(410773002, 410773015)
+class(studentId)
+as.character(studentId)
+```
+```{r}
+library(lubridate)
+```
+
+```{r}
+tpeTime <- ymd_hms("2020-03-18 13:52:40",
+        tz="Asia/Taipei")
+
+pgTime <- mdy_hms("Mar.18, 2020, 05:52:40",
+                  tz="Europe/Lisbon")
+```
+
+```{r}
+typeof(tpeTime)
+class(tpeTime)
+```
+```{r}
+tpeTime
+print(tpeTime)
+cat(tpeTime)
+```
+```{r}
+cat(as.character(tpeTime))
+```
+```{r}
+tpeTime2 <- ymd_hms("2010-03-18 16:52:40",
+        tz="Asia/Taipei")
+pgTime2 <- mdy_hms("Mar.01, 2020, 03:52:40",
+                  tz="Europe/Lisbon")
+```
+
+```{r}
+tpeTime3 <- 
+  with_tz(tpeTime2, tzone="America/New_York")
+
+print(tpeTime2)
+print(tpeTime3)
+```
+```{r}
+pgTime3 <- 
+  with_tz(pgTime2, tzone="America/New_York")
+
+print(pgTime2)
+print(pgTime3)
+```
+```{r}
+# Method 1: convert to UTC and pass as character
+tpeTime_utc <- with_tz(tpeTime, tzone="UTC")
+as.character(tpeTime_utc)
+```
+```{r}
+tpeTime_iso8601 <- format_ISO8601(tpeTime, usetz=T)
+tpeTime_iso8601
+```
+```{r}
+tpeTime <- ymd_hms(tpeTime_iso8601)
+tpeTime
+```
+```{r}
+browseURL("https://docs.google.com/spreadsheets/d/1EAG49qDKPWWi0ebkVr29TLrvVnoBPfkvxYY-J3xLAHY/edit#gid=458686645")
+```
+
+```{r}
+firstCommit <- ymd_hms("2020-03-11 14:16:43")
+lastCommit <- ymd_hms("2020-03-11 14:34:33")
+
+student1 <- c(firstCommit,lastCommit)
+student1
+class(student1)
+```
+
