@@ -1,0 +1,82 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-10-28"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+vectorExampleWithNames <- c(
+  "p1"="小明","p2"="小英","p3"="大雄")
+vectorExampleWithNames
+names(vectorExampleWithNames)
+```
+```{r}
+numVector <- c(2, 3, 6, -1, 4, 2, 6)
+numVector[c(1,4)]
+
+select1 <- numVector[c(1, 4)]
+select1
+
+select2 <- select1[[1]]
+select2
+
+# 相當於
+numVector[c(1, 4)][[1]]
+```
+```{r}
+majorsStudent <- c("經濟學系", "經濟學系", "社會學系", "社工系", "經濟學系")
+namesStudent <- c("小英", "小美", "大雄", "阿華", "阿尼")
+genderStudent <- c("F", "F", "M", "F", "M")
+```
+
+```{r}
+majors
+```
+
+```{r}
+pickEconNum <- c(1,2,5)
+namesStudent[pickEconNum]
+genderStudent[pickEconNum]
+```
+
+```{r}
+whichHasEcon <- which(pickEcon)
+```
+```{r}
+majorsStudent
+genderStudent
+```
+
+```{r}
+pickEconMale <- c(F,F,F,F,T)
+namesStudent
+```
+
+```{r}
+today <- list(
+  list("台北市", c(highest_temp = 25), c(lowest_temp = 18)), 
+  list("新北市", 
+    c(highest_temp = 24), c(lowest_temp = 15)))
+tomorrow <- list(
+  list("台北市", c(highest_temp = 25), c(lowest_temp = 18)), 
+  list("新北市", 
+    c(highest_temp = 24), c(lowest_temp = 15)))
+
+weather <- list(today, tomorrow)
+
+print(weather)
+```
+
+```{r}
+str(weather,3)
+```
+
