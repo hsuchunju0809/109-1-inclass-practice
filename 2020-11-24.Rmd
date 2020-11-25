@@ -1,0 +1,114 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-11-24"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+a <- c(2, 3, 5)
+b <- c(4,-1, 3)
+```
+
+```{r}
+a+b
+a-b
+a*b
+a/b
+```
+
+```{r}
+a %% b
+# 相當於
+c(2%%4, 3%%(-1), 5%%3)
+
+a ** b
+```
+
+```{r}
+a <- sample(1:15,5,replace=T)
+a
+a %% 2
+```
+
+```{r}
+a <- c(2, 3, 5)
+b <- c(4,-1, 3)
+a ** b
+```
+
+```{r}
+set.seed(20389)
+a2 <- sample(1:20,7)
+print(a2)
+```
+
+```{r}
+b2 <- c(5,8,-1,7,6)
+
+length(a2)
+length(b2)
+```
+
+```{r}
+c(b2,b2)
+```
+
+```{r}
+a2 / b2
+```
+
+```{r}
+paste0(
+  c("我叫","我叫"), c("小明","小美")
+)
+```
+
+```{r}
+example <- list(
+  name=c("小明","小花","小新","美美"),
+  height=c(175,166,170,160),
+  weight=c(77,NA,60,43),
+  birthday=lubridate::ymd(c("1998-03-11","1999-12-22","1995-08-22","2001-10-10")),
+  hobby=c("美食 旅遊","旅遊 時尚","3C 美食","音樂 旅遊"),
+  residence=c("Taipei","New Taipei","Taichung","Kaohsiung"),
+  allowance=factor(c("0-1000","1001-2000","2000+","1001-2000")),
+  bloodType=c("A","B","B","O")
+)
+```
+
+```{r}
+df_example <- as.data.frame(example)
+```
+
+```{r}
+tr_example <- purrr::transpose(example)
+str(tr_example)
+```
+
+```{r}
+# 使用list的工具
+df_example$name[c(1,4)]
+
+# 使用data frame的延伸工具`[.row, .column]`
+df_example[c(1,4), "name"]
+df_example[c(1,4), 1]
+df_example[c(1,4), c(T,rep(F,7))]
+```
+
+```{r}
+df_example[c(1),1:8]
+View(df_example[1, ])
+class(df_example[1, ][[5]])
+class(df_example[1, ][5])
+df_example[ ,"name"]
+```
+
