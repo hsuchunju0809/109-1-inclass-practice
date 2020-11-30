@@ -1,0 +1,95 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-12-01"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+set.seed(2020)
+ages_chr <- sample(c("4以下","5-10","11-15"), 15, replace=T)
+ages_chr
+```
+
+```{r}
+unique(ages_chr)
+```
+
+```{r}
+table(ages_chr)
+```
+
+```{r}
+ages_fct1 <- 
+  factor(
+    ages_chr
+  )
+```
+
+```{r}
+ages_chr
+ages_fct1
+```
+
+```{r}
+ages_fct2 <- 
+  factor(
+    ages_chr,
+    levels = c("4以下","5-10","11-15")
+  )
+ages_fct2
+```
+
+```{r}
+table(ages_fct1)
+table(ages_fct2)
+```
+
+```{r}
+ages_fct2[[3]] #4以下
+ages_fct2[[6]] #5-10
+ages_fct2[[3]] > ages_fct2[[6]]
+```
+
+```{r}
+ages_fct3 <- 
+  factor(
+    ages_chr,
+    levels = c("4以下","5-10","11-15"),
+    ordered = T
+  )
+ages_fct3
+```
+
+```{r}
+ages_fct3[[3]] #4以下
+ages_fct3[[6]] #5-10
+ages_fct3[[3]] > ages_fct3[[6]]
+ages_fct3[[6]] < "11-15" # 也可以用文字寫下levels中有的分類
+```
+
+```{r}
+# 忘了告訴電腦是ordered factor
+ages_fct2_order = factor(ages_fct2, ordered=T)
+ages_fct2_order
+# 也可以
+ages_fct2_order = as.ordered(ages_fct2)
+
+# 忘了告訴電腦呈現順序是"11-15","5-10","4以下"
+ages_fct3_newLevels = 
+  factor(
+    ages_fct3, 
+    levels = c("11-15","5-10","4以下")
+  )
+ages_fct3_newLevels
+is.ordered(ages_fct3_newLevels)
+```
+
