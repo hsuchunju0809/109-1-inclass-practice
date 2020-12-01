@@ -93,3 +93,209 @@ ages_fct3_newLevels
 is.ordered(ages_fct3_newLevels)
 ```
 
+```{r}
+old_fct <- 
+  factor(c("4以下","5-10","11-15"))
+levels(old_fct) # 依序下的各類別名稱
+```
+```{r}
+levels(old_fct) <- c("青少年", "幼兒", "兒童")
+levels(old_fct)
+old_fct
+```
+
+```{r}
+set.seed(2018)
+gender <- 
+  sample(c("M","F"), 10000,replace = T)
+head(gender)
+```
+```{r}
+gender_fct <- factor(
+  gender
+)
+levels(gender_fct)
+```
+
+```{r}
+levels(gender_fct) <- c("女","男")
+head(gender_fct)
+```
+
+```{r}
+old_fct2 <- 
+  factor(c("4以下","5-10","11-15", "5-10"))
+
+old_fct2 <- factor(
+  old_fct2,
+  levels = c("4以下","5-10","11-15")
+)
+old_fct2
+
+levels(old_fct2)
+levels(old_fct2) <- c("4以下","5-10","11-15")
+old_fct2
+```
+
+```{r}
+set.seed(2020)
+ages_chr <- sample(c("4以下","5-9","10-14", "15-19"), 20, replace=T)
+ages_chr
+```
+
+```{r}
+ages_fctBy5 <- 
+  factor(
+    ages_chr,
+    levels = c("4以下","5-9","10-14", "15-19")
+  )
+
+levels(ages_fctBy5)
+table(ages_fctBy5)
+```
+
+```{r}
+levels(ages_fctBy5) <- c("10以下", "10以下", "10以上", "10以上")
+table(ages_fctBy5)
+```
+
+```{r}
+set.seed(2020)
+ages_chr <- sample(c("4以下","5-9","10-14", "15-19"), 10, replace=T)
+ages_chr
+```
+
+```{r}
+data_fct <- factor(ages_chr)
+levels(data_fct)
+length(data_fct)
+```
+
+```{r}
+data_fct[[11]] <- c("10-14")
+data_fct
+data_fct[c(12, 13)] <- c("5-9","15-19")
+data_fct
+```
+
+```{r}
+levels(data_fct) 
+data_fct[[14]] <- "20-24"
+data_fct[[14]]
+data_fct
+```
+
+```{r}
+levels(data_fct)
+```
+
+```{r}
+levels(data_fct)[[5]] <- "20-24"
+levels(data_fct)
+data_fct[[14]] <- "20-24"
+data_fct
+```
+
+```{r}
+fct_a <- factor(c('a','d','e'))
+fct_b <- factor(c("a","e","j"))
+
+list_ab <- 
+  list(fct_a, fct_b)
+list_ab
+unlist(fct_ab) -> fct_ab
+fct_ab
+```
+
+```{r}
+library(stringr)
+library(glue)
+```
+
+```{r}
+thatsAlright <- 
+  jsonlite::fromJSON(
+    "https://www.dropbox.com/s/f3ox7rd5favr0o0/thatsAlright.json?dl=1"
+  )
+```
+
+```{r}
+View(thatsAlright)
+class(thatsAlright)
+length(thatsAlright)
+```
+
+```{r}
+# 字串向量長度
+length(c("I will"))
+# 每個元素值有幾個字元(包含符號與空格)
+str_length(c("I will"))
+```
+
+```{r}
+# 字串向量長度
+length(thatsAlright)
+# 每個元素值有幾個字元
+str_length(thatsAlright)
+```
+
+```{r}
+line67 <- thatsAlright[c(6,7)]
+line67
+```
+
+```{r}
+str_split(line67, ", ")
+```
+
+```{r}
+# 'you'是否出現在第1,2,3,...最後一句
+pick_you <- str_detect(thatsAlright, pattern="you")
+pick_you
+class(pick_you)
+str_view_all(thatsAlright[pick_you],"you")
+```
+
+```{r}
+# 哪幾句有'you'出現
+whichHas_you <- str_which(thatsAlright, pattern="you")
+whichHas_you
+str_view_all(thatsAlright[whichHas_you],"you")
+```
+
+```{r}
+# 只留下有出現'you'字眼的句子
+onlyYou <- str_subset(thatsAlright, pattern="you")
+
+length(thatsAlright)
+length(onlyYou)
+```
+
+```{r}
+thatsAlright[pick_you]
+thatsAlright[whichHas_you]
+```
+
+```{r}
+# 每一句有幾個"you"
+countEach_you <- str_count(thatsAlright,
+                           pattern="you")
+countEach_you
+str_view_all(
+  thatsAlright[1:10], pattern="you")
+```
+
+```{r}
+patternWithBoundary="\\byou\\b"
+```
+
+```{r}
+str_view_all(
+  c("I am yours",
+    "And you?",
+    "Young and smart", 
+    "It means that you and I are lucky"),
+  pattern=patternWithBoundary
+)
+```
+
