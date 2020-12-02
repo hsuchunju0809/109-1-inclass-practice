@@ -1,0 +1,86 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-12-02"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+sameIdentities <- c("臺北市", "台北市", "台北大學", "臺北大學", "基隆市")
+
+str_detect(
+  sameIdentities, pattern="[台臺]")
+str_view_all(
+  sameIdentities, pattern="[台臺]")
+```
+
+```{r}
+str_extract(
+  sameIdentities, pattern="[台臺]北市")
+```
+
+```{r}
+dragonPeople <-
+  c(
+    "住在台北市的臺北人也常被稱為天龍人")
+str_extract(
+  dragonPeople,
+  pattern="[台臺]北[市人]"
+)
+# 當一個元素值內的文字規律可多次出現時用_all來一網打盡，否則只處理第一個出現的規律
+str_extract_all(
+  dragonPeople,
+  pattern="[台臺]北[市人]"
+)
+```
+```{r}
+
+```
+
+```{r}
+Rmdfiles # length=5
+str_replace(
+  Rmdfiles,
+  pattern = rep("[Rr][Mm][Dd]",5),
+  replacement = rep("Rmd",5)
+)
+```
+
+```{r}
+str_replace_all(
+  string,
+  c(
+    "pattern1"="replacement1",
+    "pattern2"="replacement2",
+  )
+)
+```
+
+```{r}
+emailContent <- '親愛的_name_朋友好，
+
+  恭喜你，你的電子發票號碼_invoiceNumber_ 差點中獎。'
+cat(emailContent)
+```
+
+```{r}
+replacementNamedVector <- c(
+  "_name_" = "小新",
+  "_invoiceNumber_" = "EF-89400133"
+)
+
+synthesizedContent <- str_replace_all(
+  emailContent,
+  replacementNamedVector
+)
+cat(synthesizedContent)
+```
+
