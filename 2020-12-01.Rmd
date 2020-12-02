@@ -299,3 +299,27 @@ str_view_all(
 )
 ```
 
+```{r}
+Rmdfiles <- c("file1.Rmd", "file2.R", "file3.rmd", "file4.RMD", "myRmd.R")
+SchoolIds <- c("410973029", "410988011", "410974023","410783025","710773022","410788021","410673124","410873051","49988001")
+```
+
+```{r}
+library(stringr)
+```
+
+
+```{r}
+Rmdfiles
+regexPattern="[Rr][Mm][Dd]"
+str_subset(
+  Rmdfiles, pattern=regexPattern)
+```
+
+```{r}
+SchoolIds
+regexPattern="[4](108|109)(73|88)"
+str_subset(
+  SchoolIds, pattern=regexPattern)
+```
+
