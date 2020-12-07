@@ -273,3 +273,67 @@ total= mingsPrice + yingsPrice
 total
 ```
 
+```{r}
+library(purrr)
+map(
+  list(2,5,3,7),
+  ~{
+    3^.x
+  }
+)
+map(
+  c(2,5,3,7),
+  ~{
+    3^.x
+  }
+)
+```
+
+```{r}
+map(
+  list(
+    list("Mary", 5),
+    list("John", 10)
+  ),
+  ~{
+    paste0(.x[[1]], " is ",.x[[2]], " years old")
+  }
+)
+```
+
+```{r}
+myData <- 
+  list(
+    list("Mary", 5),
+    list("John", 10)
+  )
+
+# .x 代表myData的元素
+map(
+  myData,
+  ~{
+    paste0(.x[[1]], " is ",.x[[2]], " years old")
+  }
+)
+
+# .x 代表myData元素值的位置
+map(
+  1:2,
+  ~{
+    paste0(myData[[.x]][[1]], " is ", myData[[.x]][[2]], " years old")
+  }
+)
+```
+
+```{r}
+map(
+  seq_along(sukiyaMenu),
+  ~ {
+    dish_name <- sukiyaMenu[[.x]]$name # 1st expression
+    unlist(dish_name) # 2nd expression
+  }
+) -> result
+result <- unlist(result[-1])
+result
+```
+
