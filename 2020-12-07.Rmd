@@ -152,3 +152,124 @@ pick_starting3Hash
 sum(pick_starting3Hash)
 ```
 
+```{r}
+library(purrr)
+```
+
+```{r}
+sukiyaMenu <- jsonlite::fromJSON("https://www.dropbox.com/s/iu9b1hnvbtss83q/sukiyaMenu.json?dl=1")
+
+nonsetMenu3 <- sukiyaMenu[c("豪華雙饗丼", "牛丼類", "咖哩類" )]
+```
+
+```{r}
+items <- list()
+items$dish_name = vector("list", length=3)
+```
+
+```{r}
+items$dish_name
+```
+
+```{r}
+charVect <- vector("raw", 5)
+charVect
+```
+
+```{r}
+# 餐點名稱
+dish_name = nonsetMenu3[[1]]$name
+items$dish_name[[1]] <- unlist(dish_name)
+
+dish_name = nonsetMenu3[[2]]$name
+items$dish_name[[2]] <- unlist(dish_name)
+
+dish_name = nonsetMenu3[[3]]$name
+items$dish_name[[3]] <- unlist(dish_name)
+items
+```
+
+```{r}
+# 餐點名稱
+{
+  dish_name <- nonsetMenu3[[1]]$name
+  items$dish_name[[1]] <- unlist(dish_name)
+}
+{
+  dish_name <- nonsetMenu3[[2]]$name
+  items$dish_name[[2]] <- unlist(dish_name)
+}
+{
+  dish_name <- nonsetMenu3[[3]]$name
+  items$dish_name[[3]] <- unlist(dish_name)
+}
+```
+
+```{r}
+{
+  dish_name <- nonsetMenu3[[1]]$name # 1st expression
+  items$dish_name[[1]] <- unlist(dish_name)  # 2nd expression
+}
+```
+
+```{r}
+items$dish_name[[1]]  # 或
+unlist(dish_name)
+```
+
+```{r}
+result1 <- {
+  dish_name <- nonsetMenu3[[1]]$name # 1st expression
+  items$dish_name[[1]] <- unlist(dish_name)  # 2nd expression
+}
+{
+  dish_name <- nonsetMenu3[[1]]$name # 1st expression
+  items$dish_name[[1]] <- unlist(dish_name)  # 2nd expression
+} -> result2
+result1
+result2
+```
+
+```{r}
+result3 <- {
+  dish_name <- nonsetMenu3[[1]]$name # 1st expression
+  unlist(dish_name)  # 2nd expression
+}
+result3
+```
+
+```{r}
+result4 <- {
+  dish_name <- nonsetMenu3[[1]]$name # 1st expression
+  cat(unlist(dish_name))  # 2nd expression
+}
+```
+
+```{r}
+result4
+print(unlist(dish_name))
+```
+
+```{r}
+mingsPrice <- # 找出小明價格
+{
+  sizeChoice <- nonsetMenu3[["豪華雙饗丼"]][["product_variations"]][[2]]
+  pick_size <- sizeChoice$name == '飯大碗'
+  sizeChoice$price[pick_size]
+}
+
+mingsPrice
+
+yingsPrice <- # 找出小英價格
+{
+  sizeChoice <- nonsetMenu3[["牛丼類"]][["product_variations"]][[4]]
+  pick_size <- sizeChoice$name == '迷你碗'
+  sizeChoice$price[pick_size]
+}
+
+yingsPrice
+
+total= mingsPrice + yingsPrice
+total
+```
+
