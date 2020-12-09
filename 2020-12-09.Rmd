@@ -1,0 +1,38 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-12-09"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+### 4_1 元素選取 複習
+
+```{r}
+AA = c(Mary=176, John=188, Jenny= 165, Kate=170)
+LL = list(
+  Mary=list(176,"Taipei"),
+  John=list(188,"New Taipei"),
+  Jenny=list(165,"Taichung"),
+  Kate=list(170,"Hualien")
+)
+```
+
+## extract 1 element
+```{r}
+AA[[1]]
+AA[1] 
+```
+
+```{r}
+str(LL)
+str(LL[1])
+LL[1]
+```
+
