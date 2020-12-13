@@ -102,3 +102,129 @@ oneOrder$order[newOrders] <- list(
 )
 ```
 
+### review 4.2.3 4.2.4
+
+```{r}
+LL0 <- LL <- list(
+  "Mary was born on", 
+  ymd("1995-7-1"),
+  "John was born on",
+  ymd("1997-10-27")
+  )
+LL[[2]]
+```
+
+```{r}
+LL[[2]] <- ymd("1995-7-8")
+print(LL)
+```
+
+```{r}
+oneOrder$order[[1]]$quantity
+oneOrder$order[[1]]$quantity <- 2
+```
+
+```{r}
+LL <- LL0
+LL[c(2,4)]
+LL[c(2,4)] <- 
+  list(
+    ymd("1995-7-8"),
+    ymd("1997-10-17")
+  )
+print(LL[c(2,4)])
+```
+
+### review 4.2.5
+
+```{r}
+a <- c("L", "K", "Z")
+a <- a[c(1,3)]
+print(a)
+```
+
+```{r}
+a <- c("L", "K", "Z")
+a[-c(1,3)] # 不選1，3 
+a <- a[-c(1,3)] # 刪去1, 3
+```
+
+```{r}
+LL <- list('a', T, 183)
+LL[c(1,3)] <- NULL 
+print(LL) 
+```
+
+```{r}
+a0 <- a <- c(John=178, Mary=170, Hanson=180)
+names(a)
+
+names(a) <- c("John", "Kate", "Hason")
+names(a)
+
+a <- a0
+names(a)[[2]] <- "May"
+names(a)
+```
+### review 4.3
+
+```{r}
+a <- c(2, 3, 5)
+b <- c(4,-1, 3)
+```
+
+```{r}
+a+b
+a-b
+a*b
+a/b
+```
+
+```{r}
+a %% b
+# 相當於
+c(2%%4, 3%%(-1), 5%%3)
+
+a ** b
+```
+
+```{r}
+a <- sample(1:15,5,replace = T)
+a
+a%%2
+```
+
+```{r}
+a ** c(3,3,3)
+a ** 3
+```
+
+```{r}
+set.seed(20389)
+a2 <- sample(1:20,7)
+print(a2)
+```
+
+```{r}
+b2 <- c(5,8,-1,7,6)
+length(a2)
+length(b2)
+```
+
+```{r}
+a2/b2
+a2/c(b2,5,8)
+```
+
+```{r}
+paste0(
+  c("我叫"), c("小明","小美")
+)
+```
+
+```{r}
+paste0(
+  c("我叫","我叫"), c("小明","小美")
+)
+```
+
