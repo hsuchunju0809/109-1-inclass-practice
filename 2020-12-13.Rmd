@@ -1,0 +1,104 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-12-13"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+### review 4.1
+```{r}
+AA = c(Mary=176, John=188, Jenny= 165, Kate=170)
+LL = list(
+  Mary=list(176,"Taipei"),
+  John=list(188,"New Taipei"),
+  Jenny=list(165,"Taichung"),
+  Kate=list(170,"Hualien")
+)
+```
+
+```{r}
+AA[[1]]
+AA[1]
+```
+
+
+```{r}
+str(LL[[1]])
+str(LL[1])
+```
+
+```{r}
+str(LL)
+```
+
+### review 4.2.1 4.2.2
+
+```{r}
+a <- c(2, 5, 7)
+a[[4]]
+length(a)
+```
+
+```{r}
+a[[4]] <- 8
+print(a)
+```
+element names = features
+```{r}
+oneOrder <-
+list(
+restaurant = "すき家 Sukiya (新北三峽店)",
+date = lubridate::mdy("Nov 10, 2020"),
+order = list(
+  list(
+    item="蕃茄牛丼",
+    quantity=1
+  ) # 這裡少了一筆 "起司蕃茄牛丼"
+),
+total = 328
+)
+```
+
+```{r}
+oneOrder$order[[2]]
+oneOrder$order[[2]] <- list(
+    item="起司蕃茄牛丼",
+    quantity=1
+  )
+oneOrder
+```
+
+```{r}
+a <- c(2, 5, 7)
+a[c(4,5)] <- c(8,12)
+print(a)
+```
+
+```{r}
+length(oneOrder$order)
+oneOrder$order[c(3,4)]
+class(oneOrder$order)
+```
+
+```{r}
+# 取出目前已有的子元素一個當模版
+secondItem <- oneItem <- oneOrder$order[[1]]
+
+oneItem$item <- "牛丼飯"
+oneItem$quantity <- 1
+secondItem$item <- "豬排飯"
+secondItem$quantity <- 1
+
+oneOrder$order[newOrders] <- list(
+  oneItem, secondItem
+)
+```
+
