@@ -1,0 +1,80 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-12-16"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+### review 4.7.1
+
+```{r}
+set.seed(2020)
+ages_chr <- sample(c("4以下","5-10","11-15"), 15, replace=T)
+ages_chr
+```
+
+```{r}
+unique(ages_chr)
+```
+
+```{r}
+table(ages_chr)
+```
+
+```{r}
+ages_fct1 <- 
+  factor(
+    ages_chr
+  )
+ages_chr
+ages_fct1
+```
+
+```{r}
+table(ages_fct1)
+table(ages_chr)
+```
+
+```{r}
+ages_fct2 <- 
+  factor(
+    ages_chr,
+    levels = c("4以下","5-10","11-15")
+  )
+```
+
+```{r}
+table(ages_fct1)
+table(ages_fct2)
+```
+
+```{r}
+ages_fct2[[3]] #4以下
+ages_fct2[[6]] #5-10
+ages_fct2[[3]] > ages_fct2[[6]]
+```
+
+```{r}
+ages_fct3 <- 
+  factor(
+    ages_chr,
+    levels = c("4以下","5-10","11-15"),
+    ordered = T
+  )
+```
+
+```{r}
+ages_fct3[[3]] #4以下
+ages_fct3[[6]] #5-10
+ages_fct3[[3]] > ages_fct3[[6]]
+ages_fct3[[6]] < "11-15" # 也可以用文字寫下levels中有的分類
+```
+
