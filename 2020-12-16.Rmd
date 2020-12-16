@@ -242,3 +242,93 @@ unlist(list_ab) -> fct_ab
 fct_ab
 ```
 
+### review 4.8.1 4.8.2 4.8.3
+
+```{r}
+library(stringr)
+library(glue)
+```
+
+```{r}
+thatsAlright <- 
+  jsonlite::fromJSON(
+    "https://www.dropbox.com/s/f3ox7rd5favr0o0/thatsAlright.json?dl=1"
+  )
+```
+
+```{r}
+View(thatsAlright)
+class(thatsAlright)
+length(thatsAlright)
+```
+
+```{r}
+# 字串向量長度
+length(c("I will"))
+# 每個元素值有幾個字元(包含符號與空格)
+str_length(c("I will"))
+```
+
+```{r}
+# 字串向量長度
+length(thatsAlright)
+# 每個元素值有幾個字元
+str_length(thatsAlright)
+```
+
+```{r}
+line67 <- thatsAlright[c(6,7)]
+line67
+```
+
+```{r}
+str_split(line67, ", ") -> line67_spilt
+str(line67_spilt)
+```
+
+```{r}
+pattern="you" 
+```
+
+```{r}
+# 'you'是否出現在第1,2,3,...最後一句
+pick_you <- str_detect(thatsAlright, pattern="you")
+pick_you
+str_view_all(thatsAlright[pick_you],"you")
+```
+
+```{r}
+# 哪幾句有'you'出現
+whichHas_you <- str_which(thatsAlright, pattern="you")
+whichHas_you
+str_view_all(thatsAlright[whichHas_you],"you")
+```
+
+```{r}
+# 只留下有出現'you'字眼的句子
+onlyYou <- str_subset(thatsAlright, pattern="you")
+
+length(thatsAlright)
+length(onlyYou)
+```
+
+```{r}
+# 每一句有幾個"you"
+countEach_you <- str_count(thatsAlright,
+                           pattern="you")
+countEach_you
+str_view_all(
+  thatsAlright[1:10], pattern="you")
+```
+
+```{r}
+patternWithBoundary="\\byou\\b"
+str_view_all(
+  c("I am yours",
+    "And you?",
+    "Young and smart", 
+    "It means that you and I are lucky"),
+  pattern=patternWithBoundary
+)
+```
+
