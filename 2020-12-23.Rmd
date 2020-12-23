@@ -1,0 +1,61 @@
+---
+title: "課?<a0>?練習模<e7><89><88>"
+author: "hsuchunju"
+date: "2020-12-23"
+output: output_format
+params:
+  id: "410973072"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+library(lubridate); library(dplyr); library(stringr); library(purrr)
+jsonlite::fromJSON(
+"https://www.dropbox.com/s/8sftw4bbjumeqph/signMapping.json?dl=1") -> horoscopes
+```
+
+```{r}
+userBirthday <- 
+  
+  
+userHoroscopes <- 
+  {
+    
+  }
+```
+
+```{r}
+userBirthday <- ymd("1998-10-30")
+
+userHoroscopes <- 
+  {
+    # 取得生日年份
+    birthYear <- {
+      
+    }
+    
+    # 取得生日年份的12星座起始日期
+    horoscopeStartingDateInBirthYear <- {
+      
+    }
+    
+    # 切割生日成為12星座區間
+    cutBirthdayByStartingDate <- {
+      
+    }
+    
+    # 改變星座區間類別名稱
+    birthdayCutRenameLevels <- {
+      
+    }
+    levels(cutBirthdayByStartingDate) <- birthdayCutRenameLevels
+    
+    as.character(cutBirthYearByStartingDate)
+  }
+```
+
